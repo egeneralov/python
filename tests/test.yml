@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+
+- hosts: python
   remote_user: root
   roles:
     - egeneralov.python

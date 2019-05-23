@@ -1,2 +1,5 @@
 ---
 # defaults file for egeneralov.python
+
+# warning: must be str, not float
+python_version: "3.7"

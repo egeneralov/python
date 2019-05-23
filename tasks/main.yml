@@ -1,2 +1,4 @@
 ---
 # tasks file for egeneralov.python
+
+- include_tasks: "{{ ansible_distribution }}-{{ ansible_distribution_release }}-{{ python_version }}.yml"

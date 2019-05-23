@@ -18,9 +18,3 @@
       - "python{{ python_version }}"
       - "python{{ python_version }}-distutils"
     state: "{{ python_apt_state }}"
-
-- name: "check : python version"
-  shell: "python{{ python_version }} -V"
-  register: cmd
-  failed_when: "python_version not in cmd.stdout"
-  changed_when: false

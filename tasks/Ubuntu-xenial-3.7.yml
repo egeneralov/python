@@ -1,24 +1,22 @@
 ---
 
+- name: "install : system-wide"
+  apt:
+    name: software-properties-common
+    update_cache: yes
+    cache_valid_time: 3600
+
 - name: "configure : repository"
   apt_repository:
-    repo: "deb http://ftp.de.debian.org/debian testing main"
+    repo: "ppa:deadsnakes/ppa"
   register: repo
-
-- name: "configure : Default-Release"
-  lineinfile:
-    path: /etc/apt/apt.conf.d/00local
-    line: 'APT::Default-Release "stable";'
-    regexp: ".*Default-Release.*"
-    create: yes
 
 - name: "install : python{{ python_version }}"
   apt:
     update_cache: "{% if repo is changed %}yes{% else %}no{% endif %}"
     name:
       - "python{{ python_version }}"
-      - python3-distutils
-    default_release: testing
+      - "python{{ python_version }}-distutils"
     state: "{{ python_apt_state }}"
 
 - name: "check : python version"

@@ -4,4 +4,3 @@
 # warning: must be str, not float
 python_version: "3.7"
 python_apt_state: present
-

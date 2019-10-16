@@ -2,19 +2,3 @@
 # tasks file for egeneralov.python
 
 - include_tasks: "{{ ansible_distribution }}-{{ ansible_distribution_release }}-{{ python_version }}.yml"
-
-- name: "check : python version"
-  shell: "python{{ python_version }} -V"
-  register: cmd
-  failed_when: "python_version not in cmd.stdout"
-  changed_when: false
-
-- name: "download : get-pip.py"
-  get_url:
-    url: "https://bootstrap.pypa.io/get-pip.py"
-    dest: /opt/get-pip.py
-
-- name: "install : pip{{ python_version }}"
-  shell: "python{{ python_version }} /opt/get-pip.py --progress-bar off --no-color"
-  args:
-    creates: "/usr/local/bin/pip{{ python_version }}"

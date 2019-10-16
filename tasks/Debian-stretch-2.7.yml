@@ -1,0 +1,16 @@
+---
+
+- name: "install : python-{{ python_version }}"
+  apt:
+    cache_valid_time: 3600
+    name:
+      - "python-minimal"
+    state: "{{ python_apt_state }}"
+
+- name: "install : python-pip"
+  apt:
+    cache_valid_time: 3600
+    name:
+      - "python-pip"
+    state: "{{ python_apt_state }}"
+

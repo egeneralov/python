@@ -20,3 +20,13 @@
       - python3-distutils
     default_release: testing
     state: "{{ python_apt_state }}"
+
+- name: "download : get-pip.py"
+  get_url:
+    url: "https://bootstrap.pypa.io/get-pip.py"
+    dest: /opt/get-pip.py
+
+- name: "install : pip{{ python_version }}"
+  shell: "python{{ python_version }} /opt/get-pip.py --progress-bar off --no-color"
+  args:
+    creates: "/usr/local/bin/pip{{ python_version }}"

@@ -12,6 +12,7 @@ galaxy_info:
     - bionic
     - xenial
     - eoan
+    - bullseye
   galaxy_tags:
     - python
 dependencies: []
